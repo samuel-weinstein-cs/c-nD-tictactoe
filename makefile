@@ -1,2 +1,2 @@
 tictactoe: tictactoe.c
-	gcc tictactoe.c -lm
+	gcc tictactoe.c -g -lm

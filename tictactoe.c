@@ -28,12 +28,12 @@ char * draw(enum Move * board, int d){ //MUST FREE RESULT
 		coord[i]=0;
 	}
 	for(int i=0; i<size; i++){
-		coord[d-1]=i;
-		char *unit = draw(pos(coord, board, d), d-1);
 		if(d==0){
 			sprintf(result, " %c", chars[*board]);
 			return result;
 		} else {
+			coord[d-1]=i;
+			char *unit = draw(pos(coord, board, d), d-1);
 			switch(d%2){
 				case 0: //even dimension, vertical
 					break;
@@ -60,7 +60,7 @@ int main() {
 	enum Move * board = calloc(sizeof(enum Move), (int)pow(size,dimensions));
 	// enum Move test = X;
 	char *output = draw(board, dimensions);
-	printf("%s", output);
+	printf("%s", *output);
 	free(output);//MUST free result from draw
 	return 0;
 }
